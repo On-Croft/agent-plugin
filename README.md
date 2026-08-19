@@ -36,7 +36,8 @@ one.
 
 There are no credentials to configure in any client (see [Authentication](#authentication)).
 
-**Cursor** — add this repository as a plugin marketplace, then install the `croft` plugin:
+**Cursor (recommended)** — add this repository as a plugin marketplace, then install the
+`croft` plugin. This is the route that installs the MCP server **and** the skills:
 
 ```
 Cursor Settings → Plugins → Add marketplace → https://github.com/richet/croft-agent-plugin
@@ -44,6 +45,36 @@ Cursor Settings → Plugins → Add marketplace → https://github.com/richet/cr
 
 You can also point Cursor at a local clone of the folder — it reads
 `.cursor-plugin/marketplace.json`.
+
+**Cursor, one click, MCP server only** — this
+[install link](https://cursor.com/docs/mcp/install-links) adds the Croft MCP server to
+Cursor without the marketplace step:
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=croft&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLm9uY3JvZnQubmV0In0=)
+
+> **It installs the tools, not the know-how.** Cursor's deeplinks only cover MCP servers —
+> there is no plugin-install deeplink — so this route skips `skills/` entirely. Your agent
+> gets Croft's tools but not its conventions, which is exactly the gap this plugin exists to
+> close. Prefer the marketplace install above; use the link when you only want the server.
+
+<details>
+<summary>How the link is built</summary>
+
+`cursor://anysphere.cursor-deeplink/mcp/install?name=<name>&config=<base64>`, where the
+config is the base64 of a single server entry:
+
+```json
+{"type":"http","url":"https://mcp.oncroft.net"}
+```
+
+```bash
+printf '{"type":"http","url":"https://mcp.oncroft.net"}' | base64
+# eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLm9uY3JvZnQubmV0In0=
+```
+
+Regenerate it if the endpoint ever changes.
+
+</details>
 
 **Claude Code** — add the marketplace and install:
 

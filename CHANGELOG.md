@@ -14,6 +14,9 @@ All notable changes to the Croft Agent Plugin are documented here. The format fo
   (reusing the root `mcp.json`).
 - `assets/logo.svg` and `assets/logo.png` — the Croft brand icon, referenced by `logo` in
   the Cursor plugin and marketplace manifests. Cursor is the only host with a logo field.
+- README: a one-click Cursor MCP install deeplink
+  (`cursor://anysphere.cursor-deeplink/mcp/install`), flagged as MCP-server-only — Cursor
+  has no plugin-install deeplink, so that route does not deliver `skills/`.
 
 ### Changed
 - Version bumped to 1.1.0 across all manifests. The root `plugin.json`, `mcp.json`, and
