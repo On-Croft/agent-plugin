@@ -17,7 +17,7 @@
         "name": "Croft"
       },
       "homepage": "https://oncroft.net",
-      "repository": "https://github.com/richet/croft-agent-plugin",
+      "repository": "https://github.com/on-croft/agent-plugin",
       "license": "MIT",
       "logo": "assets/logo.svg",
       "category": "productivity",

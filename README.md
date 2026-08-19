@@ -40,7 +40,7 @@ There are no credentials to configure in any client (see [Authentication](#authe
 `croft` plugin. This is the route that installs the MCP server **and** the skills:
 
 ```
-Cursor Settings → Plugins → Add marketplace → https://github.com/richet/croft-agent-plugin
+Cursor Settings → Plugins → Add marketplace → https://github.com/on-croft/agent-plugin
 ```
 
 You can also point Cursor at a local clone of the folder — it reads
@@ -79,7 +79,7 @@ Regenerate it if the endpoint ever changes.
 **Claude Code** — add the marketplace and install:
 
 ```bash
-claude plugin marketplace add richet/croft-agent-plugin
+claude plugin marketplace add on-croft/agent-plugin
 claude plugin install croft@croft
 ```
 
@@ -88,13 +88,13 @@ directory into the client's plugin location. It discovers the root `plugin.json`
 `mcp.json`, and `skills/` automatically.
 
 ```
-https://github.com/richet/croft-agent-plugin
+https://github.com/on-croft/agent-plugin
 ```
 
 ## What's inside
 
 ```
-croft-agent-plugin/
+agent-plugin/
 ├── plugin.json                     # Agent Plugin 1.0.0 manifest
 ├── mcp.json                        # Croft MCP server (remote, streamable-http)
 ├── .cursor-plugin/

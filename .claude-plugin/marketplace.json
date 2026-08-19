@@ -19,7 +19,7 @@
         "url": "https://oncroft.net"
       },
       "homepage": "https://oncroft.net",
-      "repository": "https://github.com/richet/croft-agent-plugin",
+      "repository": "https://github.com/on-croft/agent-plugin",
       "license": "MIT",
       "keywords": ["croft", "mcp", "paas", "apps", "deploy", "connectors", "sqlite"]
     }
