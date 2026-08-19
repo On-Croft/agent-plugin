@@ -12,6 +12,8 @@ All notable changes to the Croft Agent Plugin are documented here. The format fo
   Cursor requires a marketplace manifest before it will add a folder or repo as a plugin.
 - Claude Code support: `.claude-plugin/marketplace.json` and `.claude-plugin/plugin.json`
   (reusing the root `mcp.json`).
+- `assets/logo.svg` and `assets/logo.png` — the Croft brand icon, referenced by `logo` in
+  the Cursor plugin and marketplace manifests. Cursor is the only host with a logo field.
 
 ### Changed
 - Version bumped to 1.1.0 across all manifests. The root `plugin.json`, `mcp.json`, and

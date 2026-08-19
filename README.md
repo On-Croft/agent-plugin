@@ -73,6 +73,9 @@ croft-agent-plugin/
 ├── .claude-plugin/
 │   ├── marketplace.json            # Claude Code marketplace manifest
 │   └── plugin.json                 # Claude Code plugin manifest (points at ../mcp.json)
+├── assets/
+│   ├── logo.svg                    # Croft brand icon — shown by Cursor's marketplace
+│   └── logo.png                    # 1024px raster of the same icon
 └── skills/
     ├── building-croft-apps/        # the create → write → deploy → verify golden path
     ├── croft-connectors/           # calling external APIs via connectors (no SDKs, no keys)
@@ -82,6 +85,11 @@ croft-agent-plugin/
 The same `skills/` directory and the same MCP endpoint serve every client — the
 client-specific directories only carry each host's manifest format. Keep the `version`
 field in sync across the four manifests when releasing.
+
+`assets/logo.svg` is Croft's brand icon, copied from the marketing site. Only Cursor renders
+it (via `logo` in both of its manifests) — the Agent Plugin 1.0.0 spec and Claude Code have
+no logo field. It's the light tile, which carries its own background so it reads on light
+and dark marketplace themes alike.
 
 ## The MCP server
 

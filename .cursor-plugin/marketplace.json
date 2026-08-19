@@ -19,6 +19,7 @@
       "homepage": "https://oncroft.net",
       "repository": "https://github.com/richet/croft-agent-plugin",
       "license": "MIT",
+      "logo": "assets/logo.svg",
       "category": "productivity",
       "keywords": ["croft", "mcp", "paas", "apps", "deploy", "connectors", "sqlite"],
       "tags": ["croft", "mcp", "deploy", "paas"]
