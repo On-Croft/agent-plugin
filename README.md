@@ -1,7 +1,7 @@
 # Croft Agent Plugin
 
 [![Agent Plugin 1.0.0](https://img.shields.io/badge/Agent%20Plugin-1.0.0-1f6ae0)](https://agent-plugins.org/specification)
-[![Version](https://img.shields.io/badge/version-1.0.0-1f6ae0)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.1.0-1f6ae0)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-1f6ae0)](LICENSE)
 
 > One step to make any compatible AI agent a Croft builder — the tools **and** the know-how.
@@ -10,8 +10,8 @@ A portable [Agent Plugin 1.0.0](https://agent-plugins.org/specification) for
 **[Croft](https://oncroft.net)** — a passwordless PaaS where you build, deploy, and
 maintain small web apps by talking to an AI assistant.
 
-Point any Agent Plugin 1.0.0-compatible client at this plugin and your agent gets two
-things:
+It installs natively in **Cursor** and **Claude Code**, and in any other Agent Plugin
+1.0.0-compatible client. Point a client at this plugin and your agent gets two things:
 
 1. **The Croft MCP server** (`mcp.json`) — the tools to create apps, write files, deploy,
    manage connectors and shared data, and more, on the user's Croft workspace.
@@ -34,9 +34,27 @@ one.
 
 ## Install
 
-Point your Agent Plugin 1.0.0 client at this repository, or drop the directory into your
-client's plugin location. Compatible clients discover the MCP server and skills
-automatically — there are no credentials to configure (see [Authentication](#authentication)).
+There are no credentials to configure in any client (see [Authentication](#authentication)).
+
+**Cursor** — add this repository as a plugin marketplace, then install the `croft` plugin:
+
+```
+Cursor Settings → Plugins → Add marketplace → https://github.com/richet/croft-agent-plugin
+```
+
+You can also point Cursor at a local clone of the folder — it reads
+`.cursor-plugin/marketplace.json`.
+
+**Claude Code** — add the marketplace and install:
+
+```bash
+claude plugin marketplace add richet/croft-agent-plugin
+claude plugin install croft@croft
+```
+
+**Any other Agent Plugin 1.0.0 client** — point it at this repository, or drop the
+directory into the client's plugin location. It discovers the root `plugin.json`,
+`mcp.json`, and `skills/` automatically.
 
 ```
 https://github.com/richet/croft-agent-plugin
@@ -48,11 +66,22 @@ https://github.com/richet/croft-agent-plugin
 croft-agent-plugin/
 ├── plugin.json                     # Agent Plugin 1.0.0 manifest
 ├── mcp.json                        # Croft MCP server (remote, streamable-http)
+├── .cursor-plugin/
+│   ├── marketplace.json            # Cursor marketplace manifest (this repo = one plugin)
+│   ├── plugin.json                 # Cursor plugin manifest
+│   └── mcp.json                    # same server, Cursor's `type: http` spelling
+├── .claude-plugin/
+│   ├── marketplace.json            # Claude Code marketplace manifest
+│   └── plugin.json                 # Claude Code plugin manifest (points at ../mcp.json)
 └── skills/
     ├── building-croft-apps/        # the create → write → deploy → verify golden path
     ├── croft-connectors/           # calling external APIs via connectors (no SDKs, no keys)
     └── croft-shared-data/          # sharing SQLite data between apps
 ```
+
+The same `skills/` directory and the same MCP endpoint serve every client — the
+client-specific directories only carry each host's manifest format. Keep the `version`
+field in sync across the four manifests when releasing.
 
 ## The MCP server
 
@@ -65,6 +94,9 @@ croft-agent-plugin/
   }
 }
 ```
+
+Cursor spells the same transport `"type": "http"`, so `.cursor-plugin/mcp.json` carries an
+identical server under that name. Both point at `https://mcp.oncroft.net`.
 
 ## Authentication
 
@@ -96,6 +128,8 @@ connectors and shared apps.
 - **Croft** — [oncroft.net](https://oncroft.net)
 - **Set it up in your assistant** — [oncroft.net/connect/agent-plugin](https://oncroft.net/connect/agent-plugin/)
 - **Agent Plugin 1.0.0 spec** — [agent-plugins.org/specification](https://agent-plugins.org/specification)
+- **Cursor plugins** — [cursor.com/docs/plugins](https://cursor.com/docs/plugins)
+- **Claude Code plugins** — [code.claude.com/docs/en/plugins-reference](https://code.claude.com/docs/en/plugins-reference)
 - **Changelog** — [CHANGELOG.md](CHANGELOG.md)
 
 ## License

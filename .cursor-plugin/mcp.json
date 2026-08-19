@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "croft": {
+      "type": "http",
+      "url": "https://mcp.oncroft.net"
+    }
+  }
+}

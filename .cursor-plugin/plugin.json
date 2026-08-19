@@ -1,22 +1,17 @@
 {
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "croft",
+  "displayName": "Croft",
   "version": "1.1.0",
   "description": "Build, deploy, and maintain apps on a Croft workspace through the Croft MCP, plus skills that teach agents the Croft golden path, connectors, and shared data.",
   "author": {
-    "name": "Croft",
-    "url": "https://oncroft.net"
+    "name": "Croft"
   },
   "homepage": "https://oncroft.net",
   "repository": "https://github.com/richet/croft-agent-plugin",
   "license": "MIT",
-  "keywords": [
-    "croft",
-    "mcp",
-    "paas",
-    "apps",
-    "deploy",
-    "connectors",
-    "sqlite"
-  ]
+  "category": "productivity",
+  "keywords": ["croft", "mcp", "paas", "apps", "deploy", "connectors", "sqlite"],
+  "tags": ["croft", "mcp", "deploy", "paas"],
+  "skills": "./skills",
+  "mcpServers": "./.cursor-plugin/mcp.json"
 }
